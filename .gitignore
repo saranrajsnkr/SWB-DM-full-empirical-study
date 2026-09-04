@@ -1,0 +1,58 @@
+# ============ Datasets & large archives ============
+data
+archive
+*.tar.gz
+*.zip
+*.gz
+
+# ============ Logs & temp text outputs ============
+*.txt
+*.log
+
+# ============ Python artifacts ============
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+env
+venv
+ENV
+build
+dist
+*.egg-info
+*.egg
+
+# ============ IDE / editors / cloud spaces ============
+# (no trailing slashes: these are symlinks in this studio)
+.cursor-server
+.vscode-server
+.windsurf-server
+.vscode
+.idea
+.ipython
+.jupyter
+.lightning_studio
+.lightningignore
+
+# ============ System / shell / env configs ============
+.bashrc
+.zshrc
+.zsh_history
+.zcompdump
+.zcompdump*
+.profile
+.hushlogin
+.sudo_as_admin_successful
+.vimrc
+.cache
+.local
+.config
+.ssh
+.docker
+.nv
+.nvm
+.oh-my-zsh
+.condarc
+.DS_Store
+Thumbs.db

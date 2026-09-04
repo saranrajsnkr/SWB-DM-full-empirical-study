@@ -1,0 +1,9 @@
+method,rounds,total_wall_sec,mean_train_sec_round,mean_agg_sec_round,agg_pool_size,final_acc,comm_mb_round_transmission
+FedAvg,10,29.6,2.74,0.01,50,30.34,109.0
+Median,10,29.6,2.72,0.02,50,24.39,109.0
+Krum,10,30.3,2.73,0.1,50,10.1,109.0
+Bulyan,10,52.6,2.7,2.34,50,28.53,109.0
+FLTrust,10,32.1,2.71,0.28,50,22.87,109.0
+SWB,10,91.1,2.72,6.18,50,22.79,109.0
+DelayedMomentum,10,63.3,2.75,3.36,500,8.61,109.0
+SWB-DM,10,163.0,2.74,13.35,500,8.68,109.0
