@@ -45,7 +45,7 @@ if __name__ == "__main__":
     plt.plot(betas, med_errs, "o-", color="gray", label="Median")
     plt.plot(betas, swb_errs, "s-", color="blue", label="SWB (calibrated)")
     plt.xlabel(r"Corruption fraction $\beta$"); plt.ylabel("L2 aggregation error (delta space)")
-    plt.title("Empirical aggregation error vs. robust-estimation bound (ALIE)")
+    plt.title("Empirical aggregation error vs. robust-estimation bound (IPM)")    
     plt.legend(); plt.grid(alpha=0.3); plt.tight_layout()
     plt.savefig("theory_bound_adaptive_attacks.png", dpi=150)
     print("Saved theory_bound_adaptive_attacks.png")
