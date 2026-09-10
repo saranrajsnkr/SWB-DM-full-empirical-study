@@ -6,6 +6,16 @@ Standard Byzantine-robust aggregators (Krum, Bulyan, Median) assume the sampled 
 
 Building directly on the **Delayed Momentum Aggregation (DeMoA)** principle (Yamada et al.), this repository implements **SWB-DM**. It combines a full-pool delayed-momentum cache (which restores the population-level Byzantine fraction) with **SWB**, a Sliced-Wasserstein/Robust-Mean-Estimation aggregator that applies trimmed 1-D Wasserstein barycenters under random orthogonal projections.
 
+## Architecture
+
+![SWB-DM System Architecture](SWB_DM_Architecture_Diagram_page-0001.jpg)
+
+The SWB-DM framework decouples standard local client training from the robust server-side aggregation phase to mitigate sampling-induced vulnerabilities. The architecture operates across three primary stages:
+
+* **Client Training & Attack Injection:** A randomly sampled subset of clients (e.g., 10-30%) performs local SGD on non-IID Dirichlet data partitions. During this phase, adversarial nodes inject crafted perturbations (ALIE, IPM, or Naive attacks) into their model updates before transmitting them to the central server.
+* **Delayed Momentum Cache (Server-Side):** To counteract the artificially high concentration of Byzantine attackers in small random samples, incoming updates are blended with a persistent, full-pool state cache. This temporal mechanism successfully anchors the current round's updates to the true population-level Byzantine fraction.
+* **SWB Aggregation Engine (Server-Side):** The momentum-adjusted cache is passed into the Sliced-Wasserstein Barycenter module. The high-dimensional model weights undergo random orthogonal projections into 1-D spaces. A trimmed Wasserstein barycenter isolates and discards statistical outliers in these 1-D slices, and the robust mean is inverse-projected to update the Global Model safely.
+
 ## Key Empirical Findings
 This repository contains a fully reproducible, 448+ configuration empirical study validating the following:
 1. **Collapse Prevention:** At 30% corruption and 50% participation, non-cached baselines collapse to ~10% accuracy under IPM/ALIE attacks. SWB-DM survives by anchoring to the full-pool cache.
